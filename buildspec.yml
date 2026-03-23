@@ -3,13 +3,9 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo Logging in to Amazon ECR...
-      - ACCOUNT_ID=247606490890
-      - REGION=us-east-1
-      - REPOSITORY_URI=$ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/2048-gamerepo
-      - IMAGE_TAG=latest
-      - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com
-
+     - echo Logging in to Amazon ECR...
+     - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 247606490890.dkr.ecr.us-east-1.amazonaws.com
+      
   build:
     commands:
       - echo Building the Docker image...
